@@ -28,7 +28,7 @@
     rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="stylesheet" href="css/style.css?v=7">
 </head>
 
 <body>
@@ -99,29 +99,157 @@
     </div>
   </header>
 
+  <!-- Mobile Drawer Backdrop Overlay -->
+  <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+
   <!-- Mobile Drawer Menu -->
   <div class="mobile-drawer" id="mobileDrawer">
-    <ul class="mobile-nav-list">
-      <li><a href="#home" class="mobile-nav-link"><span>🏠 Beranda</span> ➔</a></li>
-      <li><a href="#layanan" class="mobile-nav-link"><span>⚡ Layanan Kami</span> ➔</a></li>
-      <li><a href="#tentang" class="mobile-nav-link"><span>🌱 Tentang Kalcer</span> ➔</a></li>
-      <li><a href="#portofolio" class="mobile-nav-link"><span>🎨 Portofolio Proyek</span> ➔</a></li>
-      <li><a href="#harga" class="mobile-nav-link"><span>🏷️ Paket Harga</span> ➔</a></li>
-      <li><a href="#estimator" class="mobile-nav-link"><span>🧮 Hitung Estimasi</span> ➔</a></li>
-      <li><a href="#faq" class="mobile-nav-link"><span>❓ Tanya Jawab (FAQ)</span> ➔</a></li>
-      <li><a href="#kontak" class="mobile-nav-link"><span>📞 Hubungi Kami</span> ➔</a></li>
-      <li><a href="#anggota" class="mobile-nav-link"><span>👥 Anggota Tim (Kelompok 8)</span> ➔</a></li>
-    </ul>
-
-    <div class="mobile-drawer-bottom">
-      <a href="https://wa.me/6281234567890?text=Halo%20Kalcer%20Digital,%20saya%20ingin%20konsultasi" target="_blank"
-        rel="noopener noreferrer" class="btn btn-primary btn-block mobile-drawer-btn">
-        <span>Chat WhatsApp Langsung</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path
-            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
-          </path>
+    <!-- Drawer Header -->
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <img src="assets/kalcer-logo.png" alt="Kalcer Digital" class="drawer-logo">
+        <div>
+          <div class="drawer-brand-name"><span class="text-orange">Kalcer</span> <span class="text-green">Digital</span></div>
+          <div class="drawer-brand-tag">Creative & Growth Agency</div>
+        </div>
+      </div>
+      <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Tutup menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
+      </button>
+    </div>
+
+    <!-- Drawer Nav Links -->
+    <nav class="drawer-nav" aria-label="Mobile Navigation">
+      <ul class="drawer-nav-list">
+        <li>
+          <a href="#home" class="drawer-nav-link mobile-nav-link">
+            <span class="drawer-nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </span>
+            <span class="drawer-nav-label">Beranda</span>
+            <span class="drawer-nav-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#layanan" class="drawer-nav-link mobile-nav-link">
+            <span class="drawer-nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </span>
+            <span class="drawer-nav-label">Layanan Kami</span>
+            <span class="drawer-nav-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#tentang" class="drawer-nav-link mobile-nav-link">
+            <span class="drawer-nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            </span>
+            <span class="drawer-nav-label">Tentang Kalcer</span>
+            <span class="drawer-nav-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#portofolio" class="drawer-nav-link mobile-nav-link">
+            <span class="drawer-nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            </span>
+            <span class="drawer-nav-label">Portofolio Proyek</span>
+            <span class="drawer-nav-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#harga" class="drawer-nav-link mobile-nav-link">
+            <span class="drawer-nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </span>
+            <span class="drawer-nav-label">Paket Harga</span>
+            <span class="drawer-nav-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#estimator" class="drawer-nav-link mobile-nav-link">
+            <span class="drawer-nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="8" y1="10" x2="16" y2="10"></line><line x1="8" y1="14" x2="12" y2="14"></line></svg>
+            </span>
+            <span class="drawer-nav-label">Hitung Estimasi</span>
+            <span class="drawer-nav-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#faq" class="drawer-nav-link mobile-nav-link">
+            <span class="drawer-nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            </span>
+            <span class="drawer-nav-label">Tanya Jawab (FAQ)</span>
+            <span class="drawer-nav-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#kontak" class="drawer-nav-link mobile-nav-link">
+            <span class="drawer-nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.36 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.55 5.55l1.36-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 15.48v1.44z"></path></svg>
+            </span>
+            <span class="drawer-nav-label">Hubungi Kami</span>
+            <span class="drawer-nav-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#anggota" class="drawer-nav-link mobile-nav-link">
+            <span class="drawer-nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </span>
+            <span class="drawer-nav-label">Anggota Tim</span>
+            <span class="drawer-nav-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Drawer Footer CTA -->
+    <div class="drawer-footer">
+      <div class="drawer-stats">
+        <div class="drawer-stat-item">
+          <span class="drawer-stat-num">50+</span>
+          <span class="drawer-stat-lbl">Brand Terbantu</span>
+        </div>
+        <div class="drawer-stat-divider"></div>
+        <div class="drawer-stat-item">
+          <span class="drawer-stat-num">120+</span>
+          <span class="drawer-stat-lbl">Proyek Sukses</span>
+        </div>
+        <div class="drawer-stat-divider"></div>
+        <div class="drawer-stat-item">
+          <span class="drawer-stat-num">3.5x</span>
+          <span class="drawer-stat-lbl">Rata-rata ROAS</span>
+        </div>
+      </div>
+      <a href="https://wa.me/6282399213651?text=Halo%20Kalcer%20Digital,%20saya%20ingin%20konsultasi" target="_blank"
+        rel="noopener noreferrer" class="drawer-cta-btn mobile-drawer-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span>Konsultasi Gratis via WhatsApp</span>
       </a>
     </div>
   </div>
@@ -202,23 +330,65 @@
         <!-- Main Hero Card -->
         <div class="hero-card-main">
           <img src="assets/kalcer-logo.png" alt="Kalcer Digital Showcase" class="hero-logo-large">
-          <div class="hero-badge-tagline">✨ Build the Brand, Grow the Business</div>
+          <div class="hero-badge-tagline">
+            <span class="hero-tagline-mark" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3v18"></path>
+                <path d="M3 12h18"></path>
+                <path d="m5.6 5.6 12.8 12.8"></path>
+                <path d="m18.4 5.6-12.8 12.8"></path>
+              </svg>
+            </span>
+            <span>Build the Brand, Grow the Business</span>
+          </div>
 
           <div class="hero-feature-pills">
             <div class="pill-item">
-              <span class="pill-icon">🚀</span>
+              <span class="pill-icon icon-rocket" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.5 4.5c2.8-1.6 5-1.8 5-1.8s-.2 2.2-1.8 5c-1.2 2.1-3.1 3.9-5.3 5.1l-2.8-2.8c1.2-2.2 3-4.1 4.9-5.5Z"></path>
+                  <path d="m9.6 10-3.4.4-2.1 2.1 4.1.8"></path>
+                  <path d="m14 14.4-.4 3.4-2.1 2.1-.8-4.1"></path>
+                  <circle cx="15.8" cy="8.2" r="1.2"></circle>
+                  <path d="M6.5 17.5c-1.1.2-2 .7-2.8 1.5.8.1 1.6.1 2.4-.1"></path>
+                </svg>
+              </span>
               <span>Social Media Management & Konten Viral</span>
             </div>
             <div class="pill-item">
-              <span class="pill-icon">🎯</span>
+              <span class="pill-icon icon-target" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="8"></circle>
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <circle cx="12" cy="12" r="1"></circle>
+                </svg>
+              </span>
               <span>Branding Identitas & Visual Estetik</span>
             </div>
             <div class="pill-item">
-              <span class="pill-icon">💻</span>
+              <span class="pill-icon icon-screen" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="13" rx="1.5"></rect>
+                  <path d="M8 21h8"></path>
+                  <path d="M12 17v4"></path>
+                </svg>
+              </span>
               <span>Website Responsif & Cepat Terindeks</span>
             </div>
             <div class="pill-item">
-              <span class="pill-icon">📈</span>
+              <span class="pill-icon icon-chart" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 19V5"></path>
+                  <path d="M4 19h16"></path>
+                  <path d="m7 15 3-4 3 2 4-6"></path>
+                  <path d="M17 7h2v2"></path>
+                </svg>
+              </span>
               <span>Periklanan Meta Ads & TikTok Ads Terukur</span>
             </div>
           </div>
@@ -361,7 +531,14 @@
 
         <div class="why-us-list">
           <div class="why-item">
-            <div class="why-icon">💡</div>
+            <div class="why-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18h6"></path>
+                <path d="M10 22h4"></path>
+                <path d="M8.5 14.5a6 6 0 1 1 7 0c-.9.6-1.5 1.4-1.5 2.5h-4c0-1.1-.6-1.9-1.5-2.5Z"></path>
+              </svg>
+            </div>
             <div>
               <h4>Kreativitas Berjiwa Trendi</h4>
               <p>Materi desain dan konten selalu mengikuti perkembangan tren terkini agar brand Anda selalu menjadi
@@ -370,7 +547,15 @@
           </div>
 
           <div class="why-item">
-            <div class="why-icon">📊</div>
+            <div class="why-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19V5"></path>
+                <path d="M4 19h16"></path>
+                <path d="m7 15 3-4 3 2 4-6"></path>
+                <path d="M17 7h2v2"></path>
+              </svg>
+            </div>
             <div>
               <h4>Keputusan Berbasis Data</h4>
               <p>Kami tidak bermain tebak-tebakan. Semua strategi kampanye didukung metrik, data interaksi, dan analisa
@@ -379,7 +564,17 @@
           </div>
 
           <div class="why-item">
-            <div class="why-icon">🤝</div>
+            <div class="why-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m8 12 2.2 2.2a2 2 0 0 0 2.8 0L16 11.2"></path>
+                <path d="m3 8 3-3 5 5-3 3-5-5Z"></path>
+                <path d="m21 8-3-3-5 5 3 3 5-5Z"></path>
+                <path d="m6 16 2 2"></path>
+                <path d="m9 19 1 1"></path>
+                <path d="m18 16-2 2"></path>
+              </svg>
+            </div>
             <div>
               <h4>Harga Bersahabat & Transparan</h4>
               <p>Paket layanan fleksibel yang ramah untuk UMKM hingga bisnis berkembang tanpa biaya tersembunyi.</p>
@@ -389,20 +584,38 @@
       </div>
 
       <div class="about-visual">
-        <div class="hero-card-main" style="background: linear-gradient(145deg, #FAFDFB 0%, var(--green-50) 100%);">
-          <div style="font-size: 3rem; margin-bottom: 1rem;">🌿 ➔ 🍊</div>
-          <h4 style="font-size: 1.4rem; font-weight: 800; color: var(--green-700); margin-bottom: 0.75rem;">Sinergi
-            Orange & Hijau</h4>
-          <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        <div class="about-visual-card">
+          <div class="about-brand-mark" aria-hidden="true">
+            <span class="about-mark about-mark-green">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 19c4-5 5-10 5-15"></path>
+                <path d="M7 15c-2.5 0-4-1.5-4-4 2.5 0 4 1.5 4 4Z"></path>
+                <path d="M10 10c-2.5 0-4-1.5-4-4 2.5 0 4 1.5 4 4Z"></path>
+                <path d="M10 12c2.5 0 4-1.5 4-4-2.5 0-4 1.5-4 4Z"></path>
+              </svg>
+            </span>
+            <span class="about-mark-connector"></span>
+            <span class="about-mark about-mark-orange">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="7"></circle>
+                <path d="M12 5V3"></path>
+                <path d="m5 7-1-1"></path>
+                <path d="m19 7 1-1"></path>
+              </svg>
+            </span>
+          </div>
+          <h4>Sinergi Orange & Hijau</h4>
+          <p>
             <strong>Orange</strong> melambangkan energi, keberanian, dan antusiasme tinggi.<br>
             <strong>Hijau</strong> mencerminkan pertumbuhan subur, keberlanjutan, dan kepercayaan jangka panjang.
           </p>
-          <div
-            style="background: #ffffff; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); text-align: left;">
-            <div style="font-size: 0.82rem; font-weight: 700; color: var(--orange-600); text-transform: uppercase;">
-              Prinsip Kerja Kami</div>
-            <div style="font-size: 0.92rem; font-weight: 600; color: var(--text-main); margin-top: 0.25rem;">Riset
-              Mendalam ➔ Desain Autentik ➔ Eksekusi Cepat ➔ Evaluasi Terukur</div>
+          <div class="about-principle">
+            <div class="about-principle-label">Prinsip Kerja Kami</div>
+            <div class="about-principle-flow">
+              <span>Riset</span><i></i><span>Desain</span><i></i><span>Eksekusi</span><i></i><span>Evaluasi</span>
+            </div>
           </div>
         </div>
       </div>
@@ -437,8 +650,9 @@
           <div class="portfolio-preview" style="background: linear-gradient(135deg, #FFE6D6 0%, #FF8038 100%);">
             <span class="portfolio-badge badge-tag-orange">Branding</span>
             <div class="portfolio-preview-bg">
-              <div style="font-size: 3.5rem;">☕</div>
-              <h4 style="color: #662000; font-weight: 800; font-size: 1.3rem;">Kopi Kalcer Roastery</h4>
+              <img src="assets/portfolio/kopi-kalcer.jpg" alt="Proyek Kopi Kalcer Roastery" class="portfolio-image">
+              <div class="portfolio-image-overlay"></div>
+              <h4>Kopi Kalcer Roastery</h4>
             </div>
           </div>
           <div class="portfolio-body">
@@ -446,13 +660,7 @@
             <h4 class="portfolio-title">Rebranding Visual & Kemasan Packaging Kopi</h4>
             <p class="portfolio-desc">Pembaruan identitas merek, desain stiker cup ramah lingkungan, dan pedoman visual
               seragam untuk 3 cabang kedai kopi.</p>
-            <div class="portfolio-result-pill">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-              </svg>
-              <span>Awareness brand naik 145%</span>
-            </div>
-            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20proyek%20Branding%20seperti%20Kopi%20Kalcer"
+            <a href="https://wa.me/6282399213651?text=Halo,%20saya%20tertarik%20dengan%20proyek%20Branding%20seperti%20Kopi%20Kalcer"
               target="_blank" rel="noopener noreferrer" class="btn btn-outline-orange btn-sm">Lihat Detail Kasus</a>
           </div>
         </div>
@@ -462,8 +670,9 @@
           <div class="portfolio-preview" style="background: linear-gradient(135deg, #D8F0E1 0%, #0E6838 100%);">
             <span class="portfolio-badge badge-tag-green">Social Media</span>
             <div class="portfolio-preview-bg">
-              <div style="font-size: 3.5rem;">✨</div>
-              <h4 style="color: #FFFFFF; font-weight: 800; font-size: 1.3rem;">Aroma Glow Skincare</h4>
+              <img src="assets/portfolio/aroma-glow.jpg" alt="Proyek Aroma Glow Skincare" class="portfolio-image">
+              <div class="portfolio-image-overlay"></div>
+              <h4>Aroma Glow Skincare</h4>
             </div>
           </div>
           <div class="portfolio-body">
@@ -471,13 +680,7 @@
             <h4 class="portfolio-title">Produksi Konten Reels & Manajemen Instagram</h4>
             <p class="portfolio-desc">Eksekusi 30 konten reels estetik, UGC talent video, dan manajemen feed konsisten
               yang sukses viral di Instagram & TikTok.</p>
-            <div class="portfolio-result-pill">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-              </svg>
-              <span>Total 1.2 Juta Organik Views</span>
-            </div>
-            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20proyek%20Social%20Media%20Aroma%20Glow"
+            <a href="https://wa.me/6282399213651?text=Halo,%20saya%20tertarik%20dengan%20proyek%20Social%20Media%20Aroma%20Glow"
               target="_blank" rel="noopener noreferrer" class="btn btn-outline-green btn-sm">Lihat Detail Kasus</a>
           </div>
         </div>
@@ -487,8 +690,9 @@
           <div class="portfolio-preview" style="background: linear-gradient(135deg, #FFF5EE 0%, #E85108 100%);">
             <span class="portfolio-badge badge-tag-orange">Website</span>
             <div class="portfolio-preview-bg">
-              <div style="font-size: 3.5rem;">🛍️</div>
-              <h4 style="color: #FFFFFF; font-weight: 800; font-size: 1.3rem;">Urban Kalcer Apparel</h4>
+              <img src="assets/portfolio/urban-kalcer.jpg" alt="Proyek Urban Kalcer Apparel" class="portfolio-image">
+              <div class="portfolio-image-overlay"></div>
+              <h4>Urban Kalcer Apparel</h4>
             </div>
           </div>
           <div class="portfolio-body">
@@ -496,13 +700,7 @@
             <h4 class="portfolio-title">Landing Page Toko Online Berkonversi Tinggi</h4>
             <p class="portfolio-desc">Website e-commerce ringan berkecepatan 98 pada PageSpeed Insights, dengan alur
               checkout instan terhubung WhatsApp & payment gateway.</p>
-            <div class="portfolio-result-pill">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-              </svg>
-              <span>Konversi Penjualan Naik 3.8x</span>
-            </div>
-            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20Website%20seperti%20Urban%20Kalcer"
+            <a href="https://wa.me/6282399213651?text=Halo,%20saya%20tertarik%20dengan%20Website%20seperti%20Urban%20Kalcer"
               target="_blank" rel="noopener noreferrer" class="btn btn-outline-orange btn-sm">Lihat Detail Kasus</a>
           </div>
         </div>
@@ -512,8 +710,9 @@
           <div class="portfolio-preview" style="background: linear-gradient(135deg, #EEF8F2 0%, #084323 100%);">
             <span class="portfolio-badge badge-tag-green">Digital Ads</span>
             <div class="portfolio-preview-bg">
-              <div style="font-size: 3.5rem;">🍟</div>
-              <h4 style="color: #FFFFFF; font-weight: 800; font-size: 1.3rem;">Snack Renyah Nusantara</h4>
+              <img src="assets/portfolio/snack-nusantara.jpg" alt="Proyek Snack Renyah Nusantara" class="portfolio-image">
+              <div class="portfolio-image-overlay"></div>
+              <h4>Snack Renyah Nusantara</h4>
             </div>
           </div>
           <div class="portfolio-body">
@@ -521,13 +720,7 @@
             <h4 class="portfolio-title">Meta Ads Funneling Scaling Penjualan Grosir</h4>
             <p class="portfolio-desc">Kampanye periklanan terarah untuk merekrut agen & reseller baru di seluruh Pulau
               Jawa dengan optimasi biaya per leads serendah Rp 4.500.</p>
-            <div class="portfolio-result-pill">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-              </svg>
-              <span>ROAS Rata-rata 4.6x</span>
-            </div>
-            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20iklan%20Meta%20Ads%20seperti%20Snack%20Nusantara"
+            <a href="https://wa.me/6282399213651?text=Halo,%20saya%20tertarik%20dengan%20iklan%20Meta%20Ads%20seperti%20Snack%20Nusantara"
               target="_blank" rel="noopener noreferrer" class="btn btn-outline-green btn-sm">Lihat Detail Kasus</a>
           </div>
         </div>
@@ -537,8 +730,9 @@
           <div class="portfolio-preview" style="background: linear-gradient(135deg, #B2DEC4 0%, #0E6838 100%);">
             <span class="portfolio-badge badge-tag-green">Website</span>
             <div class="portfolio-preview-bg">
-              <div style="font-size: 3.5rem;">🏥</div>
-              <h4 style="color: #032110; font-weight: 800; font-size: 1.3rem;">Klinik Sehat Harmoni</h4>
+              <img src="assets/portfolio/klinik-sehat.jpg" alt="Proyek Klinik Sehat Harmoni" class="portfolio-image">
+              <div class="portfolio-image-overlay"></div>
+              <h4>Klinik Sehat Harmoni</h4>
             </div>
           </div>
           <div class="portfolio-body">
@@ -546,13 +740,7 @@
             <h4 class="portfolio-title">Sistem Reservasi Online & Profil Layanan Medis</h4>
             <p class="portfolio-desc">Pembuatan website klinik dengan formulir booking jadwal dokter dan katalog paket
               pemeriksaan kesehatan terintegrasi.</p>
-            <div class="portfolio-result-pill">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-              </svg>
-              <span>Pendaftaran Online +70%</span>
-            </div>
-            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20proyek%20Website%20Klinik%20Sehat"
+            <a href="https://wa.me/6282399213651?text=Halo,%20saya%20tertarik%20dengan%20proyek%20Website%20Klinik%20Sehat"
               target="_blank" rel="noopener noreferrer" class="btn btn-outline-green btn-sm">Lihat Detail Kasus</a>
           </div>
         </div>
@@ -562,8 +750,9 @@
           <div class="portfolio-preview" style="background: linear-gradient(135deg, #FFE6D6 0%, #FF6417 100%);">
             <span class="portfolio-badge badge-tag-orange">Branding</span>
             <div class="portfolio-preview-bg">
-              <div style="font-size: 3.5rem;">👟</div>
-              <h4 style="color: #FFFFFF; font-weight: 800; font-size: 1.3rem;">Footwear Kalcer Care</h4>
+              <img src="assets/portfolio/footwear-kalcer.jpg" alt="Proyek Footwear Kalcer Care" class="portfolio-image">
+              <div class="portfolio-image-overlay"></div>
+              <h4>Footwear Kalcer Care</h4>
             </div>
           </div>
           <div class="portfolio-body">
@@ -571,13 +760,7 @@
             <h4 class="portfolio-title">Brand Identity & Social Media Launch Campaign</h4>
             <p class="portfolio-desc">Peluncuran brand perawatan sepatu anak muda dengan identitas warna orange-hijau
               tegas, banner promosi, dan materi promosi TikTok.</p>
-            <div class="portfolio-result-pill">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-              </svg>
-              <span>500+ Pasang Sepatu di Bulan Pertama</span>
-            </div>
-            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20proyek%20Brand%20Footwear%20Care"
+            <a href="https://wa.me/6282399213651?text=Halo,%20saya%20tertarik%20dengan%20proyek%20Brand%20Footwear%20Care"
               target="_blank" rel="noopener noreferrer" class="btn btn-outline-orange btn-sm">Lihat Detail Kasus</a>
           </div>
         </div>
@@ -1105,15 +1288,26 @@
 
             <div class="contact-details-list">
               <div class="contact-detail-item">
-                <div class="contact-icon-bubble">📱</div>
+                <div class="contact-icon-bubble" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"></path>
+                  </svg>
+                </div>
                 <div class="contact-detail-text">
                   <span>WhatsApp Resmi</span>
-                  <strong>+62 812-3456-7890</strong>
+                  <strong>+62 823-9921-3651</strong>
                 </div>
               </div>
 
               <div class="contact-detail-item">
-                <div class="contact-icon-bubble">✉️</div>
+                <div class="contact-icon-bubble" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                    <path d="m3 7 9 6 9-6"></path>
+                  </svg>
+                </div>
                 <div class="contact-detail-text">
                   <span>Email Kolaborasi</span>
                   <strong>halo@kalcerdigital.id</strong>
@@ -1121,7 +1315,13 @@
               </div>
 
               <div class="contact-detail-item">
-                <div class="contact-icon-bubble">📍</div>
+                <div class="contact-icon-bubble" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+                    <circle cx="12" cy="10" r="2.5"></circle>
+                  </svg>
+                </div>
                 <div class="contact-detail-text">
                   <span>Studio Kreatif</span>
                   <strong>Jakarta & Bandung, Indonesia</strong>
@@ -1129,7 +1329,13 @@
               </div>
 
               <div class="contact-detail-item">
-                <div class="contact-icon-bubble">⏰</div>
+                <div class="contact-icon-bubble" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="8.5"></circle>
+                    <path d="M12 7v5l3 2"></path>
+                  </svg>
+                </div>
                 <div class="contact-detail-text">
                   <span>Jam Operasional</span>
                   <strong>Senin – Sabtu, 09.00 – 18.00 WIB</strong>
@@ -1140,16 +1346,18 @@
 
           <div
             style="font-size: 0.85rem; color: var(--green-200); border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 1.25rem;">
-            ⚡ Respon cepat dalam 15-30 menit via WhatsApp di jam operasional.
+            <span class="contact-response-mark" aria-hidden="true">⚡</span>
+            Respon cepat dalam 15-30 menit via WhatsApp di jam operasional.
           </div>
         </div>
 
         <!-- Contact Form Panel -->
         <div class="contact-form-panel">
-          <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-main);">Kirim Pesan
-            Konsultasi</h3>
-          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.75rem;">Isi formulir singkat di bawah
-            ini dan kami akan segera mengarahkan Anda ke WhatsApp tim kami.</p>
+          <div class="contact-form-heading">
+            <span class="contact-form-kicker">Mulai percakapan</span>
+            <h3>Kirim Pesan Konsultasi</h3>
+            <p>Isi formulir singkat di bawah ini dan kami akan segera mengarahkan Anda ke WhatsApp tim kami.</p>
+          </div>
 
           <form class="contact-form" id="contactForm">
             <div class="form-group">
@@ -1195,7 +1403,7 @@
         <p>Jangan biarkan kompetitor merebut pasar Anda. Bangun reputasi digital yang kuat bersama Kalcer Digital
           sekarang.</p>
         <div class="cta-buttons">
-          <a href="https://wa.me/6281234567890?text=Halo%20Kalcer%20Digital,%20saya%20siap%20scale%20up%20brand%20saya"
+          <a href="https://wa.me/6282399213651?text=Halo%20Kalcer%20Digital,%20saya%20siap%20scale%20up%20brand%20saya"
             target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg"
             style="background: #FFFFFF; color: var(--green-700); box-shadow: 0 8px 24px rgba(0,0,0,0.2);">
             <span>Mulai Sekarang via WhatsApp</span>
@@ -1321,7 +1529,7 @@
                 <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
               </svg>
             </a>
-            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="social-link"
+            <a href="https://wa.me/6282399213651" target="_blank" rel="noopener noreferrer" class="social-link"
               aria-label="WhatsApp">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path
@@ -1362,7 +1570,7 @@
           <h4>Kontak Langsung</h4>
           <ul class="footer-links" style="gap: 1rem;">
             <li style="color: #92B3A1; font-size: 0.92rem;">
-              <span style="color: var(--orange-400); font-weight: bold;">WhatsApp:</span><br>+62 812-3456-7890
+              <span style="color: var(--orange-400); font-weight: bold;">WhatsApp:</span><br>+62 823-9921-3651
             </li>
             <li style="color: #92B3A1; font-size: 0.92rem;">
               <span style="color: var(--orange-400); font-weight: bold;">Email:</span><br>halo@kalcerdigital.id
@@ -1398,12 +1606,11 @@
     </button>
 
     <!-- WhatsApp Floating Action Button -->
-    <a href="https://wa.me/6281234567890?text=Halo%20Kalcer%20Digital,%20saya%20ingin%20konsultasi%20langsung"
+    <a href="https://wa.me/6282399213651?text=Halo%20Kalcer%20Digital,%20saya%20ingin%20konsultasi%20langsung"
       target="_blank" rel="noopener noreferrer" class="fab-btn fab-whatsapp" aria-label="Hubungi WhatsApp">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path
-          d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
-        </path>
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
       </svg>
     </a>
   </div>

@@ -6,13 +6,45 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Keep portfolio cards presentable until an optional project image is added.
+  document.querySelectorAll('.portfolio-image').forEach(image => {
+    image.addEventListener('error', () => {
+      image.remove();
+    });
+  });
+
+  // Turn the services list into a continuous, responsive marquee.
+  const servicesGrid = document.querySelector('.services-grid');
+  if (servicesGrid) {
+    const serviceCards = [...servicesGrid.querySelectorAll('.service-card')];
+    const marquee = document.createElement('div');
+    const track = document.createElement('div');
+    const group = document.createElement('div');
+    const duplicateGroup = document.createElement('div');
+
+    marquee.className = 'services-marquee-wrapper';
+    track.className = 'services-marquee-track';
+    group.className = 'services-marquee-group';
+    duplicateGroup.className = 'services-marquee-group';
+    duplicateGroup.setAttribute('aria-hidden', 'true');
+
+    serviceCards.forEach(card => group.appendChild(card));
+    serviceCards.forEach(card => duplicateGroup.appendChild(card.cloneNode(true)));
+    track.append(group, duplicateGroup);
+    marquee.appendChild(track);
+    servicesGrid.replaceWith(marquee);
+  }
+
   // 1. Mobile Menu Drawer Toggle
   const mobileToggle = document.getElementById('mobileToggle');
   const mobileDrawer = document.getElementById('mobileDrawer');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-drawer-btn');
+  const drawerOverlay = document.getElementById('drawerOverlay');
+  const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-drawer-btn, .drawer-cta-btn');
 
   function toggleMobileMenu() {
     const isOpen = mobileDrawer.classList.toggle('open');
+    if (drawerOverlay) drawerOverlay.classList.toggle('open', isOpen);
     mobileToggle.classList.toggle('active', isOpen);
     mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     document.body.style.overflow = isOpen ? 'hidden' : '';
@@ -20,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function closeMobileMenu() {
     mobileDrawer.classList.remove('open');
+    if (drawerOverlay) drawerOverlay.classList.remove('open');
     mobileToggle.classList.remove('active');
     mobileToggle.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
@@ -27,6 +60,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (mobileToggle) {
     mobileToggle.addEventListener('click', toggleMobileMenu);
+  }
+
+  // Close button inside drawer
+  if (drawerCloseBtn) {
+    drawerCloseBtn.addEventListener('click', closeMobileMenu);
+  }
+
+  // Close on overlay click
+  if (drawerOverlay) {
+    drawerOverlay.addEventListener('click', closeMobileMenu);
   }
 
   mobileLinks.forEach(link => {
@@ -184,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `• Estimasi Biaya: ${formatted}\n` +
         `Bisa diskusi lebih lanjut mengenai detail dan jadwal mulainya? Terima kasih!`
       );
-      estimatorWaBtn.href = `https://wa.me/6281234567890?text=${msg}`;
+      estimatorWaBtn.href = `https://wa.me/6282399213651?text=${msg}`;
     }
   }
 
@@ -249,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
       );
 
       setTimeout(() => {
-        window.open(`https://wa.me/6281234567890?text=${text}`, '_blank');
+        window.open(`https://wa.me/6282399213651?text=${text}`, '_blank');
         contactForm.reset();
       }, 700);
     });
@@ -263,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const msg = encodeURIComponent(
         `Halo Tim Kalcer Digital! 👋 Saya tertarik untuk memilih "${pkg}". Bisakah kita diskusikan langkah awal onboarding?`
       );
-      btn.href = `https://wa.me/6281234567890?text=${msg}`;
+      btn.href = `https://wa.me/6282399213651?text=${msg}`;
     });
   });
 
